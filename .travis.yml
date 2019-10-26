@@ -1,0 +1,18 @@
+language: go
+go:
+- 1.12.x
+script:
+- go build -o approle-login-$(go env GOARCH)
+arch:
+- amd64
+- arm64
+os: linux
+deploy:
+  provider: releases
+  file: approle-login-*
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+  api-key:
+    secure: nCm7O1/H1vFohlgLZaqOkEVEJAI3wb5VEhZyYZPJnQrbjM4w5ptGzreWUwbrkInbzWKZWrnGjpWXZT1VZOj/GsQbcsCqwWoX1FKHh685/sHn9PdBwllQISuJZ1sCxbadrCu3mvqzkFHI4858TxJmqr8qoSjIvpOzFywA/5/aXoC/HgUzbZpjH92JAR8mViNnCe/kFv1QXNij3mje1J9YoEGuDeJyYoFrDoTFtXWRcd/+KiG52AQuaauUUE9nJhb/gE6zXpCRLNTpR4WejJqNRGNXBT5P3a/9umI5hs3Z7PvpJGvrHrj8agJw0zy9vZhRAOjhSw/2cQVDI0JGD4i2OoKB5JuinvHkJDCAjKHjCFNtD9QJc14TiEzphzK8Smai9rlHHg1ZzMblYqBM71TymWSyyMCzbfBp21jjcv1horkO8Tkra0d/Eqm+D6SkRwK3LzQJRenLdA2POWzJeVoKqwj7fhGOwEC97Hb8+4Rz3v+7UrHnMKIwc31/CKeF1KMyBmhTAMlXxfDHDfP3pOn3kHp7sqxiqaWdg7EjbCC/uusQY36fWtK65xEaoQTrE22jONgq+aht9PpDoR+EaKoT91+J3rtmrcWme1v1GusvmZrZ0dgc/h3+oIraBuJ/l49tyOhXJ76zRE054+S4RlKft3FlWFJ02Z9xj+cv5ASuoIk=
