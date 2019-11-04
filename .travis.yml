@@ -2,7 +2,7 @@ language: go
 go:
 - 1.12.x
 script:
-- go build -o approle-login-$(go env GOARCH)
+- go build -o approle-login-$(go env GOOS)-$(go env GOARCH)
 arch:
 - amd64
 - arm64
